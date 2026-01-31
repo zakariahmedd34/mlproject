@@ -4,9 +4,9 @@ structured error reporting
 improves debugging
 
 '''
-import logging
+from src.logger import logging
 import sys
-import logger
+
 def error_massage_detail(error,error_detail:sys):
     """
     Generate detailed error message with file name and line number.
@@ -35,3 +35,4 @@ class CustomException(Exception):
 
     def __str__(self):
         return self.error_massage
+    
