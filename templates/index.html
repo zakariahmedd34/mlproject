@@ -1,5 +1,29 @@
-<h1> 
+{% extends "base.html" %}
 
-Zakaria Ahmed : 2/1/2026
+{% block content %}
+<div class="hero">
+    <h1>Predict Academic Success <br><span style="color: var(--primary-color)">Powered by AI</span></h1>
+    <p>Leverage advanced machine learning algorithms to predict student math scores based on demographic and educational
+        factors.</p>
+    <a href="/prediction" class="btn btn-primary btn-large">Start Predicting Now</a>
+</div>
 
-</h1>
+<div class="features"
+    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 4rem;">
+    <div class="glass-card" style="padding: 1.5rem;">
+        <h3 style="margin-bottom: 1rem; color: var(--primary-color)">Accurate Models</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted)">Our pipeline uses state-of-the-art regression techniques
+            to provide precise performance estimates.</p>
+    </div>
+    <div class="glass-card" style="padding: 1.5rem;">
+        <h3 style="margin-bottom: 1rem; color: var(--secondary-color)">Data Driven</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted)">Insects into how parental education, lunch types, and
+            preparation affect student outcomes.</p>
+    </div>
+    <div class="glass-card" style="padding: 1.5rem;">
+        <h3 style="margin-bottom: 1rem; color: #10b981">Instant Results</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted)">Get your predicted scores in milliseconds with our
+            optimized inference engine.</p>
+    </div>
+</div>
+{% endblock %}
