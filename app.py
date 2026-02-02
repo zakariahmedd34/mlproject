@@ -1,11 +1,11 @@
-from flask import Flask,redirect, request,render_template
+from flask import Flask, request,render_template
 from src.pipeline.predict_pipline import CustomData,PredictPipeline
-app = Flask(__name__,template_folder="templates",static_folder="static")
+flask_app = Flask(__name__,template_folder="templates",static_folder="static")
 
-@app.route('/')
+@flask_app.route('/')
 def index():
     return render_template('index.html')
-@app.route('/prediction',methods = ['GET','POST'])
+@flask_app.route('/prediction',methods = ['GET','POST'])
 def predict_datapoint(): 
     if request.method == "GET":
         return render_template("prediction.html")
@@ -26,6 +26,11 @@ def predict_datapoint():
         results=predict_pipeline.predict(pred_df)
         print("after Prediction")
         return render_template('prediction.html',results=f'{results[0]:.2f}')
-    
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5500, debug=True)
+    print("======================================")
+    print("Application is running on:")
+    print("Local:   http://127.0.0.1:5500")
+    print("Network: http://192.168.100.223:5500")
+    print("======================================")
+
+    flask_app.run(debug=True, host="0.0.0.0", port=5500)
